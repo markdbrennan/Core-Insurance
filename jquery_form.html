@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Core Insurance | Quote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/mobile.css">
+</head>
+    
+<body>
+    <div class="main">
+        
+        <!---------------------------- COOKIE ------------------------------>
+        <div id="terms" style="display:none">
+            <p id="cookieText">This website uses cookies. By continuing to browse this site, you are agreeing to our terms and conditions.</p>
+            <input type="button" value="Agree" id="cookieButton" />
+        </div>
+        
+        <!---------------------------- NAVIGATION ------------------------------>
+        <div id="nav" class="nav" style="display:none">
+            <img src="images/CoreInsurance.png?modified=20161101" class="menuLogo" alt="Core Insurance" style="display:none" />
+            <h2 class="contact" style="display:none">CALL US | 028 7012 3456</h2>
+        </div>
+        
+        <!---------------------------- WELCOME VIEW ------------------------------>
+        <div class="modal" id="modal" style="display:none">
+            
+            <div class="modalContent">
+                <br><br><br>
+                <h1 id="welcomeSmall">Welcome to</h1>
+                <h1 id="welcomeLarge">CORE INSURANCE</h1>
+                <br><br>
+                <input type="button" value="VIEW YOUR QUOTE" class="homeButton" />
+            </div>
+            
+            
+            <!---------------------------- SUMMARY VIEW ------------------------------>
+            <div class="summaryView" style="display:none">
+                
+                <div class="menuButton" id="summaryButton">
+                    <h3 class="menuButtonText">YOUR QUOTE</h3>
+                </div>
+                
+                <div class="summaryDetails">
+                    <div class="inputSet">
+                            
+                        <div class="summaryOverview">
+                            <img src="images/car.svg?modified=20161101" alt="Car Details" class="summaryIcon" style="width:50%" />
+                            <div class="summaryContent">
+                                <p id="summaryMake"></p>
+                                <p id="summaryModel"></p>
+                                <p id="summaryYear"></p>
+                                <p id="summaryFuel"></p>
+                            </div>
+                        </div>
+                            
+                        <div class="summaryOverview">
+                            <img src="images/payment.svg?modified=20161101" alt="Payment Details" style="width:32%; margin-bottom:25px" class="summaryIcon" />
+                            <div class="summaryContent">
+                                <p id="summaryAnnual"><b>Annual:</b> &pound;1700</p>
+                                <p>Or</p>
+                                <p id="summaryMonthly"><b>10 Monthly Payments:</b> &pound;170</p>
+                                <p><b>Excess:</b> &pound;300</p>
+                            </div>
+                        </div>
+                            
+                        <div class="summaryOverview">
+                            <img src="images/person.svg?modified=20161101" alt="Personal Details" style="width:40%; margin-bottom:15px" class="summaryIcon" />
+                            <div class="summaryContent">
+                                <p id="summaryName"></p>
+                                <p id="summaryMarital"></p>
+                                <p id="summaryEmail"></p>
+                                <p id="summaryPhone"></p>
+                            </div>
+                        </div>
+                            
+                    </div>
+                    
+                </div>
+                
+                
+                <!--------------------------------- PERSONAL DETAILS ---------------------------------->
+                <div class="menuButton" id="personalButton">
+                    <span class="editButton">Edit</span>
+                    <h3 class="menuButtonText">PERSONAL DETAILS</h3> 
+                </div>
+                
+                <form id="personalForm" class="personalDetails" style="display:none">
+                    <div class="inputSet" title="Select your title">
+                        <div class="inputContent">
+                            <label for="titleSelect">
+                                <p class="inputTitle">Title</p>
+                            </label>
+                            <select class="select" id="titleSelect">
+                              <option value="Mr">Mr</option>
+                              <option value="Mrs">Mrs</option>
+                              <option value="Miss">Miss</option>
+                              <option value="Ms">Ms</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Enter your first name">
+                        <div class="inputContent">
+                            <label for="firstName">
+                                <p class="inputTitle">First Name</p>
+                            </label>
+                            <input type="text" id="firstName" class="textInputStyle" title="Enter your first name">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter your first name</p>
+                        </div>   
+                    </div>
+
+                    <div class="inputSet" title="Enter your surname">
+                        <div class="inputContent">
+                            <label for="lastName">
+                                <p class="inputTitle">Surname</p>
+                            </label>
+                            <input type="text" id="lastName" class="textInputStyle" title="Enter your surname">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter your surname</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Enter your date of birth">
+                        <div class="inputContent">
+                            <label for="dob">
+                                <p class="inputTitle">Date of birth</p>
+                            </label>
+                            <input type="text" id="datepicker" class="dob">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter your date of birth</p>
+                        </div>
+                    </div>
+
+                    <div class="inputSet" title="Please select the marital status that applies to you now">
+                        <div class="inputContent">
+                            <label for="maritalStatus">
+                                <p class="inputTitle">Marital Status</p>
+                            </label>
+                            <select class="select" id="maritalStatus">
+                              <option value="single">Single</option>
+                              <option value="partner">Living With Partner</option>
+                              <option value="married">Married</option>
+                              <option value="civilPartner">Civil Partner</option>
+                              <option value="separated">Separated</option>
+                              <option value="divorced">Divorced</option>
+                              <option value="widowed">Widowed</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Enter an email address that we can reach you on">
+                        <div class="inputContent">     
+                            <label for="emailAddress">
+                                <p class="inputTitle">Email Address</p>
+                                <p class="inputSubTitle">We can use your email address to send you the quote</p>
+                            </label>
+                            <input type="text" id="emailAddress" class="textInputStyle" title="Enter an email address that we can reach you on">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter a valid email address</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Enter a phone number that we can contact you on">
+                        <div class="inputContent">
+                            <label for="phoneNumber">
+                                <p class="inputTitle">Phone Number</p>
+                                <p class="inputSubTitle">We will use this to contact you regarding the policy</p>
+                            </label>
+                            <input type="number" id="phoneNumber" class="textInputStyle" title="Enter a phone number that we can contact you on">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter a valid phone number</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Enter the first line of your address">
+                        <div class="inputContent">
+                            <label for="addressLine1">
+                                <p class="inputTitle">Address Line 1</p>
+                            </label>
+                            <input type="text" id="addressLine1" class="textInputStyle" title="Enter the first line of your address">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter the first line of your address</p>
+                        </div>
+                    </div>
+
+                    <div class="inputSet" title="Enter the second line of your address">
+                        <div class="inputContent">
+                            <label for="addressLine2">
+                                <p class="inputTitle">Address Line 2</p>
+                            </label>
+                            <input type="text" id="addressLine2" class="textInputStyle" title="Enter the second line of your address">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+
+                    <div class="inputSet" title="Enter your town">
+                        <div class="inputContent">
+                            <label for="town">
+                                <p class="inputTitle">Town</p>
+                            </label>
+                            <input type="text" id="town" class="textInputStyle" title="Enter your town">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter a town</p>
+                        </div>
+                    </div>
+
+                    <div class="inputSet" title="Enter your postcode">
+                        <div class="inputContent">
+                            <label for="postcode">
+                                <p class="inputTitle">Postcode</p>
+                            </label>
+                            <input type="text" id="postcode" class="textInputStyle" title="Enter your postcode">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter a valid postcode</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Select the county that you live in">
+                        <div class="inputContent">
+                            <label for="county">
+                                <p class="inputTitle">County</p>
+                            </label>
+                            <input type="text" id="county" class="textInputStyle" title="Enter your county">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter a county</p>
+                        </div>
+                    </div>
+                    
+                  
+                    <div class="inputSet" title="Answer yes if you own your home">
+                        <div class="inputContent">
+                            <label for="homeowner">
+                                <p class="inputTitle">Are you a homeowner?</p>
+                            </label>
+                            <select class="select" id="homeowner">
+                              <option value="yes">Yes</option>
+                              <option value="no">No</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+
+                    <div class="inputSet" title="Select the option that best describes your employment status">
+                        <div class="inputContent">
+                            <label for="employmentSelect">
+                                <p class="inputTitle">Employment Status</p>
+                                <p class="inputSubTitle">Select what best applies or give us more information</p>
+                            </label>
+                            <select class="select" id="employmentSelect">
+                              <option value="employedFullTime">Employed full time</option>
+                              <option value="employedPartTime">Employed part time</option>
+                              <option value="selfEmployed">Self-employed</option>
+                              <option value="voluntary">Voluntary</option>
+                              <option value="retired">Retired</option>
+                              <option value="education">Education</option>
+                              <option value="disabled">Unemployed due to disability</option>
+                              <option value="other">Other</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                        
+                        <div class="inputContent" id="employmentOther" style="display:none">
+                            <label for="employOther">
+                                <p class="inputTitle">Please tell us more about your employment</p>
+                            </label>
+                            <input type="text" id="employOther" class="textInputStyle" value="">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" style="display:none" />
+                            <p class="inputError" id="employmentError" style="display:none">Please tell us more about your employment</p>
+                        </div>
+                        
+                    </div>
+                    
+
+                    <div class="inputSet" title="Select how many years you have lived in the UK">
+                        <div class="inputContent">
+                            <label for="ukResident">
+                                <p class="inputTitle">How many years have you been a UK resident?</p>
+                            </label>
+                            <select class="select" id="ukResident">
+                              <option value="less1">Less than 1 year</option>
+                              <option value="2years">2 Years</option>
+                              <option value="3years">3 Years</option>
+                              <option value="more3">More than 3 years</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    <input type="submit" class="personalUpdateBtn" value="Save & Continue" />
+                    
+                </form>
+                
+                
+                
+                
+                <!------------------------------- VEHICLE DETAILS ----------------------------------->
+                <div class="menuButton" id="carButton">
+                    <span class="editButton">Edit</span>
+                    <h3 class="menuButtonText">VEHICLE DETAILS</h3>
+                </div>
+                
+                <form id="carForm" class="carDetails" style="display:none">
+                    
+                    <div class="inputSet" id="registrationSelect" title="Select yes if you know the registration number of your vehicle">
+                        <div class="inputContent">
+                            <label for="registrationKnown">
+                                <p class="inputTitle">Do you know the registration?</p>
+                            </label>
+							<select class="select" id="registrationKnown">
+                              <option value="yes">Yes</option>
+                              <option value="no">No</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101g" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="inputSet" id="registration" style="display:none" title="Enter the registration number of your vehicle">
+                        <div class="inputContent">
+                            <label for="carRegistration">
+                                <p class="inputTitle">What is the registration?</p>
+                            </label>
+                            <input type="text" class="textInputStyle" id="carRegistration" title="Enter the registration number of your vehicle" />
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter the registration</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Enter the make of your vehicle">
+                        <div class="inputContent">
+                            <label for="carMake">
+                                <p class="inputTitle">What make is the vehicle?</p>
+                            </label>
+                            <input type="text" class="textInputStyle" id="carMake" title="Enter the make of your vehicle" />
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter the make</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Enter the model of your vehicle">
+                        <div class="inputContent">
+                            <label for="carModel">
+                                <p class="inputTitle">Which model is the vehicle?</p>
+                            </label>
+                            <input type="text" class="textInputStyle" id="carModel" title="Enter the model of your vehicle" />
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter the model</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="What fuel does your vehicle run on?">
+                        <div class="inputContent">
+                            <label for="carFuel">
+                                <p class="inputTitle">What fuel does it run on?</p>
+                            </label>
+                            <select class="select" id="carFuel">
+                              <option value="Petrol">Petrol</option>
+                              <option value="Diesal">Diesal</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="Enter the year that your vehicle was first registered">
+                        <div class="inputContent">
+                            <label for="carYear">
+                                <p class="inputTitle">What year was the vehicle registered?</p>
+                            </label>
+                            <input type="number" class="textInputStyle" id="carYear" title="Enter the year that your vehicle was first registered" />
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter a valid year</p>
+                        </div>
+                    </div>
+                    
+                    <input type="submit" class="carUpdateBtn" value="Save & Continue" />
+                    
+                </form>
+                
+                 
+                
+                <!----------------------------- LICENSE INFORMATION --------------------------------->
+                <div class="menuButton" id="licenseButton">
+                    <span class="editButton">Edit</span>
+                    <h3 class="menuButtonText">LICENSE DETAILS</h3>
+                </div>
+                
+                <form id="licenseForm" class="licenseDetails" style="display:none">
+                    
+                     <div class="inputSet" title="Select the type of license you have">
+                        <div class="inputContent">
+                            <label for="licenseType">
+                                <p class="inputTitle">What type of driving license do you have?</p>
+                            </label>
+                            <select class="select" id="licenseType">
+                              <option value="ukFull">UK Full</option>
+                              <option value="ukProv">UK Provisional</option>
+                              <option value="euFull">EU Full</option>
+                              <option value="euFull">EU Provisional</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                   
+                    
+                    <div class="inputSet" title="Select how long you have held your license">
+                        <div class="inputContent">
+                            <label for="licenseLength">
+                                <p class="inputTitle">How long have you held your license for?</p>
+                            </label>
+                            <select class="select" id="licenseLength">
+                              <option value="less1">Less than 1 year</option>
+                              <option value="1-2">1-2 Years</option>
+                              <option value="2-3">2-3 Years</option>
+                              <option value="3-4">3-4 Years</option>
+                              <option value="4-5">4-5 Years</option>
+                              <option value="5-6">5-6 Years</option>
+                              <option value="6-7">6-7 Years</option>
+                              <option value="7-8">7-8 Years</option>
+                              <option value="8more">8 or more years</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="inputSet" title="Select what kind of vehicle your license permits you to drive">
+                        <div class="inputContent">
+                            <label for="licenseCover">
+                                <p class="inputTitle">What kind of vehicle does your license cover?</p>
+                            </label>
+							<select class="select" id="licenseCover">
+                              <option value="manualAutomatic">Manual and Automatic</option>
+                              <option value="automatic">Automatic Only</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="inputSet" title="Do you have any medical conditions that have been declared?">
+                        <div class="inputContent">
+                            <label for="medicalCondition">
+                                <p class="inputTitle">Have you declared any medical conditions to the DVLA?</p>
+                            </label>
+                            <select class="select" id="medicalCondition">
+                              <option value="none">No Condition</option>
+                              <option value="aware">DVLA aware - No restrictions</option>
+                              <option value="1year">DVLA aware - 1 year restriction</option>
+                              <option value="2year">DVLA aware - 2 year restriction</option>
+                              <option value="3year">DVLA aware - 3 year restriction</option>
+                              <option value="doctor">Advised not to drive by doctor</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="inputSet" title="You need to tell us all details of the claim, even if it wasn't your fault">
+                        <div class="inputContent">
+                            <label for="accidentClaimSelect">
+                                <p class="inputTitle">Have you had any accidents or claims in the last five years?</p>
+                            </label>
+							<select class="select" id="accidentClaimSelect">
+                              <option value="yes">Yes</option>
+                              <option value="yes">No</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            
+                            <div class="inputSet" id="accidentInput" title="Enter details about your claim">
+                                <div class="inputContent">
+                                    <fieldset class="claimFieldset">
+                                        <legend class="inputTitle">Claims</legend>
+
+                                        <div class="claim">
+                                            <label for="claimMonth"><p>Month & year of claim</p></label>
+                                            <select class="select" id="claimMonth"></select>
+                                            <select class="select" id="claimYear"></select>
+
+                                            <br><br>
+
+                                            <label for="claimType"><p>Type of claim</p></label>
+                                            <select class="select" id="claimType">
+                                                <option value="accident">Accident</option>
+                                                <option value="malicious">Malicious Damage</option>
+                                                <option value="weather">Weather Damage</option>
+                                                <option value="fire">Fire</option>
+                                                <option value="theft">Theft</option>
+                                                <option value="windscreen">Windscreen glass</option>     
+                                            </select>
+                                        </div>
+                                        
+                                    </fieldset>
+                                    
+                                    <br>
+                                    
+                                    <input type="button" id="addClaim" value = "Add Claim" />
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="inputSet" title="You can check the government website for details on conviction codes">
+                        <div class="inputContent">
+                            <label for="convictionSelect">
+                                <p class="inputTitle">Have you had any motoring convictions or fixed penalty endorsements in the last 5 years?</p>
+                            </label>
+							<select class="select" id="convictionSelect">
+                              <option value="yes">Yes</option>
+                              <option value="yes">No</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            
+                            <div class="inputSet" id="convictionInput" title="Enter details about your conviction">
+                                <div class="inputContent">
+                                    <fieldset class="convictionFieldset">
+                                        <legend class="inputTitle">Convictions & Endorsements</legend>
+
+                                        <div class="conviction">
+                                            <label for="convictionMonth">
+                                                <p>Month & year of conviction</p>
+                                            </label>
+                                            <select class="select" id="convictionMonth"></select>
+                                            <select class="select" id="convictionYear"></select>
+
+                                            <br><br>
+
+                                            <label for="convictionType">
+                                                <p>Conviction Code</p>
+                                                <p class="inputSubTitle">If you choose other, we will contact you for more information</p>
+                                            </label>
+                                            <select class="select" id="convictionType" title="Enter the conviction code, this can be found on the UK government website">
+                                                <option value="sp30">SP30</option>
+                                                <option value="sp40">SP40</option>
+                                                <option value="sp50">SP50</option>
+                                                <option value="sp60">SP60</option>
+                                                <option value="ts10">TS10</option>
+                                                <option value="ac10">AC10</option>
+                                                <option value="other">Other</option>     
+                                            </select>
+                                            
+                                        </div>
+                                        
+                                    </fieldset>
+                                    
+                                    <br>
+                                    
+                                    <input type="button" id="addConviction" value = "Add Conviction" />
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <input type="submit" class="licenseUpdateBtn" value="Save & Continue" />
+                    
+                </form>
+                
+                
+                <!--------------------------- COVER DETAILS ----------------------------->
+                <div class="menuButton" id="coverButton">
+                    <span class="editButton">Edit</span>
+                    <h3 class="menuButtonText">COVER DETAILS</h3>
+                </div>
+                
+                <form id="coverForm" class="coverDetails" style="display:none">
+                    
+                    <div class="inputSet" title="How many years No Claim Discount (NCD) do you have?">
+                        <div class="inputContent">
+                            <label for="ncdYears">
+                                <p class="inputTitle">No Claim Discount (NCD)</p>
+                                <p class="inputSubTitle">How many years no claim discount do you have?</p>
+                            </label>
+                            <select class="select" id="ncdYears">
+                              <option value="none">None</option>
+                              <option value="1year">1 Year</option>
+                              <option value="2year">2 Years</option>
+                              <option value="3year">3 Years</option>
+                              <option value="4year">4 Years</option>
+                              <option value="5year">5 Years</option>
+                              <option value="6year">6 Years</option>
+                              <option value="7year">7 Years</option>
+                              <option value="8year">8 Years</option>
+                              <option value="9more">9 years or more</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    <div class="inputSet" title="What type of cover do you want?">
+                        <div class="inputContent">
+                            <label for="coverType">
+                                <p class="inputTitle">Cover Type</p>
+                                <p class="inputSubTitle">What type of cover do you want?</p>
+                            </label>
+                            <select class="select" id="coverType">
+                              <option value="comp">Comprehensive</option>
+                              <option value="thirdfire">Third party fire & theft</option>
+                              <option value="third">Third party only</option>
+                            </select>
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="inputSet" title="When would you like the policy to start?">
+                        <div class="inputContent">
+                            <label for="policyStart">
+                                <p class="inputTitle">Policy Start Date</p>
+                                <p class="inputSubTitle">Choose a date within 30 days to start the policy</p>
+                            </label>
+                            <input type="text" id="policyStart" class="policyStart">
+                            <img src="images/complete.svg?modified=20161101" class="inputComplete" alt="Complete" />
+                            <p class="inputError" style="display:none">Please enter a valid policy start date</p>
+                        </div>
+                    </div>
+                    
+                    <input type="submit" class="coverUpdateBtn" value="Save & Continue" />
+                    
+                </form>   
+                
+            </div>
+            
+        </div>
+        
+        
+        
+        <!--------------------------- SETTINGS DIALOG ----------------------------->
+        <div id="settingsDialog" title="Customise">
+            
+            <br>
+            
+            <label class="toggle">
+              <input type="checkbox" id="transparency" checked>
+              <div class="slider round"></div>
+            </label>
+            <h2 id="settingsLabel">Transparency</h2>
+            
+            <br><br><br>
+            
+            <label class="toggle">
+              <input type="checkbox" id="largeFont">
+              <div class="slider round"></div>
+            </label>
+            <h2 id="settingsLabel">Large Font</h2>
+            
+            <br><br><br>
+            
+            <div id="theme1" class="themePicker"></div>
+            <div id="theme2" class="themePicker"></div>
+            <div id="theme3" class="themePicker"></div>
+            <div id="theme4" class="themePicker"></div>
+            <h2 id="settingsLabel">Theme</h2>
+
+        </div>
+        
+        <!--------------------------- SETTINGS BUTTON ----------------------------->
+        <div id="settingsButton" title="Customise">
+        <img src="images/settings.svg?modified=20161101" alt="settings" style="width:50px; padding: 14px" />
+        </div>   
+    
+    </div>
+
+</body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>
+     if (!window.jQuery) document.write('<script src="scripts/jquery-3.1.1.min.js"><\/script>')
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    
+</html>

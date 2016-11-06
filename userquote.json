@@ -1,0 +1,50 @@
+{
+	"personal": {
+		"titleSelect": "Mr",
+		"firstName": "Mark",
+		"lastName": "Brennan",
+		"dob": "1994-07-29",
+		"maritalStatus": "married",
+		"emailAddress": "mbrennan@me.com",
+		"phoneNumber": "07546135311",
+		"addressLine1": "26 Copper Drive",
+		"addressLine2": "",
+		"town": "Newtownabbey",
+		"postcode": "BT38 9XY",
+		"county": "Antrim",
+		"homeowner": "no",
+		"employmentSelect": "education",
+		"employOther": "",
+		"ukResident": "more3"
+	},
+    
+    "car": {
+        "registrationSelect": "yes",
+        "carRegistration": "XKZ 6178",
+        "carMake": "Vauxhall",
+        "carModel": "Astra",
+        "carFuel": "Diesal",
+        "carYear": "2012"
+    },
+    
+    "license": {
+        "licenseType": "ukFull",
+        "licenseLength": "3-4",
+        "licenseCover": "manualAutomatic",
+        "medicalCondition": "none",
+        "accidentClaimSelect": "yes",
+        "claimMonth": "07",
+        "claimYear": "2015",
+        "claimType": "weather",
+        "convicationSelect": "yes",
+        "convictionMonth": "10",
+        "convictionYear": "2014",
+        "convictionType": "ts10"
+    },
+    
+    "cover": {
+        "ncdYears": "4year",
+        "coverType": "thirdfire",
+        "policyStart": "2016-11-22"
+    }
+}

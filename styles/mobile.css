@@ -1,0 +1,62 @@
+@media (max-width: 850px) {
+    #terms {
+        height: 80px !important
+    }
+    
+    .textInputStyle {
+        width: 70% !important;
+    }
+}
+
+@media (max-width: 750px) {
+    #terms {
+        height: 100px !important
+    }  
+}
+
+@media (max-width: 416px) {
+    #terms {
+        height: 120px !important;
+        position: fixed !important;
+        z-index: 9999 !important;
+    }
+}
+
+
+
+@media (max-width: 790px) {
+    .summaryOverview {
+        width: 100% !important;
+    }
+}
+
+
+
+@media (max-width: 515px) {
+    .contact {
+        display:none !important;
+    }
+    
+    .modal {
+        width: 90% !important;
+        border-radius: 0 !important;
+        top: 37% !important;
+        height:75% !important
+    }
+    
+    .modalContent {
+        margin-top: 20px !important;
+    }
+    
+    #settingsButton {
+        display: none;
+    }
+    
+    .textInputStyle {
+        width: 75% !important;
+    }
+    
+    .personalUpdateBtn, .carUpdateBtn, .licenseUpdateBtn, .coverUpdateBtn {
+        width:87% !important;
+    }
+}
